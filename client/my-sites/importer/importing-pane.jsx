@@ -177,7 +177,15 @@ class ImportingPane extends React.PureComponent {
 			);
 		}
 
-		return translate( 'Import complete!' );
+		return translate(
+			'Import complete! Check out our handy {{a}}handy checklist{{/a}}' +
+				' to explore your settings and customizing options.',
+			{
+				components: {
+					a: checklistLink,
+				},
+			}
+		);
 	};
 
 	getImportMessage = numResources => {
