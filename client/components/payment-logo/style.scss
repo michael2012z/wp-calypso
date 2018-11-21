@@ -74,12 +74,12 @@
 		height: 30px;
 	}
 
-	// &.is-sofort {
-	// 	background-size: 60px auto;
-	// 	height: 20px;
+	&.is-sofort {
+		background-size: 60px auto;
+		height: 20px;
 
-	// 	&.is-compact {
-	// 		width: 16px;
-	// 	}
-	// }
+		&.is-compact {
+			width: 16px;
+		}
+	}
 }
