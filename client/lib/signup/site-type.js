@@ -17,22 +17,27 @@ export const allSiteTypes = [
 	{
 		type: i18n.translate( 'Blog' ),
 		description: i18n.translate( 'Share and discuss ideas, updates, or creations.' ),
+		designType: 'blog',
 	},
 	{
 		type: i18n.translate( 'Business' ),
 		description: i18n.translate( 'Promote products and services.' ),
+		designType: 'store',
 	},
 	{
 		type: i18n.translate( 'Professional' ),
 		description: i18n.translate( 'Showcase your portfolio and work.' ),
+		designType: 'portfolio',
 	},
 	{
 		type: i18n.translate( 'Education' ),
 		description: i18n.translate( 'Share school projects and class info.' ),
+		designType: 'page',
 	},
 	{
 		type: i18n.translate( 'Non-profit Organization' ),
 		description: i18n.translate( 'Raise money and awareness for a cause.' ),
+		designType: 'page',
 	},
 ];
 

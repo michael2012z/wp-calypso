@@ -12,7 +12,8 @@ import steps from 'signup/config/steps-pure';
 import flows from 'signup/config/flows';
 import formState from 'lib/form-state';
 import userFactory from 'lib/user';
-import { dasherize } from 'lib/signup/site-type';
+import { allSiteTypes, dasherize } from 'lib/signup/site-type';
+
 const user = userFactory();
 
 const { defaultFlowName } = flows;
@@ -188,19 +189,13 @@ export function getThemeForSiteGoals( siteGoals ) {
 }
 
 export function getDesignTypeForSiteType( siteType, flow ) {
-	if ( 'business' === siteType || flow === 'store-nux' ) {
+	const theSiteType = find( allSiteTypes, { type: siteType } ) || allSiteTypes[ 0 ];
+
+	if ( flow === 'store-nux' ) {
 		return 'page';
 	}
 
-	if ( 'professional' === siteType ) {
-		return 'portfolio';
-	}
-
-	if ( 'non-profit' === siteType ) {
-		return 'page';
-	}
-
-	return 'blog';
+	return theSiteType.designType;
 }
 
 export function getDesignTypeForSiteGoals( siteGoals, flow ) {
