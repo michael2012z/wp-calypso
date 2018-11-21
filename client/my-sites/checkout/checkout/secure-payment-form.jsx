@@ -20,6 +20,7 @@ import FreeCartPaymentBox from './free-cart-payment-box';
 import CreditCardPaymentBox from './credit-card-payment-box';
 import PayPalPaymentBox from './paypal-payment-box';
 import WechatPaymentBox from './wechat-payment-box';
+import SofortPaymentBox from './sofort-payment-box';
 import RedirectPaymentBox from './redirect-payment-box';
 import WebPaymentBox from './web-payment-box';
 import { fullCreditsPayment, newCardPayment, storedCardPayment } from 'lib/store-transactions';
@@ -319,6 +320,29 @@ const SecurePaymentForm = createReactClass( {
 		);
 	},
 
+	renderSofortPaymentBox() {
+		return (
+			<PaymentBox
+				classSet="sofort-payment-box"
+				cart={ this.props.cart }
+				paymentMethods={ this.props.paymentMethods }
+				currentPaymentMethod={ 'sofort' }
+				onSelectPaymentMethod={ this.selectPaymentBox }
+			>
+				<QueryPaymentCountries />
+				<SofortPaymentBox
+					cart={ this.props.cart }
+					transaction={ this.props.transaction }
+					selectedSite={ this.props.selectedSite }
+					redirectTo={ this.props.redirectTo }
+					presaleChatAvailable={ this.props.presaleChatAvailable }
+				>
+					{ this.props.children }
+				</SofortPaymentBox>
+			</PaymentBox>
+		);
+	},
+
 	renderWebPaymentBox() {
 		return (
 			<PaymentBox
@@ -406,6 +430,13 @@ const SecurePaymentForm = createReactClass( {
 					<div>
 						{ this.renderGreatChoiceHeader() }
 						{ this.renderWechatPaymentBox() }
+					</div>
+				);
+			case 'sofort':
+				return (
+					<div>
+						{ this.renderGreatChoiceHeader() }
+						{ this.renderSofortPaymentBox() }
 					</div>
 				);
 			case 'alipay':
