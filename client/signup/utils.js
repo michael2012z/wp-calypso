@@ -189,11 +189,11 @@ export function getThemeForSiteGoals( siteGoals ) {
 }
 
 export function getDesignTypeForSiteType( siteType, flow ) {
-	const theSiteType = find( allSiteTypes, { type: siteType } ) || allSiteTypes[ 0 ];
-
 	if ( flow === 'store-nux' ) {
 		return 'page';
 	}
+
+	const theSiteType = find( allSiteTypes, { type: siteType } ) || allSiteTypes[ 0 ];
 
 	return theSiteType.designType;
 }
