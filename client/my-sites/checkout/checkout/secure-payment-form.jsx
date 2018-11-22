@@ -20,7 +20,6 @@ import FreeCartPaymentBox from './free-cart-payment-box';
 import CreditCardPaymentBox from './credit-card-payment-box';
 import PayPalPaymentBox from './paypal-payment-box';
 import WechatPaymentBox from './wechat-payment-box';
-import SofortPaymentBox from './sofort-payment-box';
 import RedirectPaymentBox from './redirect-payment-box';
 import WebPaymentBox from './web-payment-box';
 import { fullCreditsPayment, newCardPayment, storedCardPayment } from 'lib/store-transactions';
@@ -432,13 +431,6 @@ const SecurePaymentForm = createReactClass( {
 						{ this.renderWechatPaymentBox() }
 					</div>
 				);
-			case 'sofort':
-				return (
-					<div>
-						{ this.renderGreatChoiceHeader() }
-						{ this.renderSofortPaymentBox() }
-					</div>
-				);
 			case 'alipay':
 			case 'bancontact':
 			case 'eps':
@@ -446,6 +438,7 @@ const SecurePaymentForm = createReactClass( {
 			case 'ideal':
 			case 'p24':
 			case 'brazil-tef':
+			case 'sofort':
 				return (
 					<div>
 						{ this.renderGreatChoiceHeader() }
